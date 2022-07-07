@@ -1,0 +1,11 @@
+from tkinter import *
+tk=Tk()
+dugme1 = Button(text="Ürünler")
+dugme1.grid()
+dugme2 = Button(text="Hizmetler")
+dugme2.grid()
+dugme3 = Button(text="Ulasım")
+dugme3.grid()
+dugme4 = Button(text="Hakkında")
+dugme4.grid()
+mainloop()

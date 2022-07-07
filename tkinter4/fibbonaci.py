@@ -1,0 +1,47 @@
+
+
+from tkinter import *  # modülü tanımladık
+from PIL import ImageTk, Image
+
+pencere = Tk()
+pencere.geometry("500x500")  # penceremizin bouyutunu ayarladık
+pencere.resizable(False, False)  # pencere büyütme özelliğini kapattık
+pencere.tk_setPalette("black")
+pencere.title("FAKTÖRİYEL HESABI")  # başlığı yazdık
+
+
+
+def onay(a):
+    a=yazi1.get()
+    a=int(a)
+    if a==0:
+        return 0
+    if a==1:
+        return 1
+
+    etiket1["text"] =(onay(a-1)+onay(a-2))
+    yazi1.delete(0,END)
+
+
+baslik = Label(text="FAKTÖRİYEL HESABI",font=("Times New Roman",30,"bold")  )# yazı için etiket oluşturduk
+baslik.pack()  # pencereye yerleştirdik
+
+yazi1 = Entry(bg="#E9E13A", fg="black",font=("Times New Roman",20,"bold"))  # giriş için yer oluşturduk
+yazi1.pack()  # pencereye yerleştirdik
+buton1 = Button(text="HESAPLA",
+               command=onay)  # hesaplamak için buton oluşturduk ve hazırladığımız fonksiyonu butona tanımladık
+buton1.pack()  # pencereye yerleştirdik
+
+buton3 = Button(pencere,text="ÇIKIŞ", command=pencere.destroy)
+buton3.pack(expand=YES)
+
+etiket1 = Label(text="SONUÇ: ",fg="white",font=("Times New Roman",20,"bold"))  # sonuç için etiket oluşturduk
+etiket1.pack()  # pencereye yerleştirdik
+
+img = ImageTk.PhotoImage(Image.open('/Users/sates/Desktop/Ekran Resmi 2020-06-03 21.19.48.png'))
+panel2 = Label(pencere, image = img,width=300, height=300)
+panel2.pack()
+
+
+
+mainloop()  # kapanmaması için mainloop yazdık
